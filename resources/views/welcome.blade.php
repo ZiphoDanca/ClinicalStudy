@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>DOCTOR - Responsive HTML &amp; Bootstrap Template</title>
+    <title>DOCTOR</title>
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -353,7 +353,7 @@ header section -->
     <div class="container">
         <div class="row">
             <div class="col-xs-6 footer-para">
-                <p>&copy;Mostafizur All right reserved</p>
+                <p>&copy;ZiphoDanca All right reserved</p>
             </div>
             <div class="col-xs-6 text-right">
                 <a href=""><i class="fa fa-facebook"></i></a>
