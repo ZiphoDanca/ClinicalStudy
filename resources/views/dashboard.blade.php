@@ -66,8 +66,8 @@ $messages =\App\Message::orderBy('created_at','DESC')->take(5)->get();
                         </li>
                     </ul>
                 </li>
-                <li class="selected"><a href="index.html"><i class="fa fa-bullseye"></i> Dashboard</a></li>
-                <li><a href="portfolio.html"><i class="fa fa-tasks"></i> Portfolio</a></li>
+                {{--<li class="selected"><a href="index.html"><i class="fa fa-bullseye"></i> Dashboard</a></li>--}}
+                <li><a href="{{url('allMessages')}}"><i class="fa fa-envelope"></i> Messages</a></li>
                 <li><a href="blog.html"><i class="fa fa-globe"></i> Blog</a></li>
                 <li><a href="signup.html"><i class="fa fa-list-ol"></i> SignUp</a></li>
                 <li><a href="register.html"><i class="fa fa-font"></i> Register</a></li>
@@ -181,6 +181,61 @@ $messages =\App\Message::orderBy('created_at','DESC')->take(5)->get();
                 { field: "Percent", title: "Percent", format: "{0} %" },
                 { field: "Target", title: "Target" },
             ]
+        });
+    });
+</script>
+<script>
+    jQuery(document).ready(function($){
+
+
+        var messagesTable     = $('#messagesTable').DataTable({
+            "autoWidth": false,
+
+            "processing": true,
+            speed: 500,
+            "dom": 'Bfrtip',
+            "buttons": [
+                'copyHtml5',
+                'excelHtml5',
+                ,{
+
+                    extend : 'pdfHtml5',
+                    title  : 'Doctor_Report',
+                    header : 'I am text in',
+                },
+
+            ],
+
+
+            "order" :[[0,"desc"]],
+            "ajax": "{!! url('/getMessages/')!!}","processing": true,
+            "serverSide": true,
+            "dom": 'Bfrtip',
+            "order" :[[0,"desc"]],
+
+            "buttons": [
+                'excelHtml5',
+                'csvHtml5',
+                'pdfHtml5'
+            ],
+
+
+            "columns": [
+                {data: 'name', name: 'name'},
+                {data: 'type', name: 'type'},
+                {data: function(d)
+                {
+                    return "<a href='{!! url('editproduct/" + d.id + "') !!}' class='btn btn-sm'>" + 'Edit' + "</a>";
+                },"name" : 'name'},
+
+
+            ],
+
+            "aoColumnDefs": [
+                { "bSearchable": false, "aTargets": [ 2] }
+                //                { "bSortable": false, "aTargets": [ 1] }
+            ]
+
         });
     });
 </script>

@@ -27,6 +27,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Messages Routes
 Route::post('storeMessage', 'MessagesController@store');
 Route::get('getMessages', 'MessagesController@getMessages');
+Route::get('allMessages', 'MessagesController@allMessages');
+
 
 //Users Routes
 Route::get('myProfile','UsersController@myProfile');

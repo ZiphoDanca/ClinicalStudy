@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Message;
-
+use Yajra\DataTables\DataTables;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -19,10 +19,15 @@ class MessagesController extends Controller
 
         return Redirect('/');
     }
+    public function allMessages()
+    {
+        return view('Messages.index');
+    }
     public function getMessages()
     {
         $messages = Message::all();
 
-        return $messages;
+        return Datatables::of($messages)
+            ->make(true);
     }
 }
